@@ -1,17 +1,19 @@
-
 // "use client"
 
-// import { useState } from "react"
+// import { useState, useEffect } from "react"
 // import Image from "next/image"
 // import ProjectModal from "./ProjectModal"
 
 // export default function ProjectCard({ project }) {
 //   const [isModalOpen, setIsModalOpen] = useState(false)
+//   const [imageUrl, setImageUrl] = useState("/placeholder.svg")
 
-//   // Ensure project.images is an array and get the first image
-//   const imageUrl = Array.isArray(project.images) && project.images.length > 0
-//     ? project.images[0]
-//     : "/placeholder.svg"
+//   // Ensure project.images is an array and update image on the client
+//   useEffect(() => {
+//     if (Array.isArray(project.images) && project.images.length > 0) {
+//       setImageUrl(project.images[0])
+//     }
+//   }, [project.images])
 
 //   return (
 //     <>
@@ -45,14 +47,17 @@ import ProjectModal from "./ProjectModal"
 
 export default function ProjectCard({ project }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [imageUrl, setImageUrl] = useState("/placeholder.svg")
+  const [imageUrl, setImageUrl] = useState(null)
 
-  // Ensure project.images is an array and update image on the client
   useEffect(() => {
     if (Array.isArray(project.images) && project.images.length > 0) {
-      setImageUrl(project.images[0])
+      setImageUrl(project.images[0]) // Set the image dynamically
+    } else {
+      setImageUrl("/placeholder.svg")
     }
   }, [project.images])
+
+  if (!imageUrl) return null // Prevent rendering until image URL is set
 
   return (
     <>
