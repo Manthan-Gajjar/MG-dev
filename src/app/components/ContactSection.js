@@ -24,9 +24,10 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 bg-black text-white rounded-lg shadow-lg px-6 md:px-12 lg:px-20">
       <div className="container mx-auto">
-        <h2 className="text-2xl font-extrabold text-center my-10 text-blue-400">Get in Touch</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-6">
+        <h2 className="text-2xl font-extrabold text-left my-10 text-blue-400 text-center">Hey, a question?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+          <div className="space-y-10 mt-5">
             <p className="text-lg">Have a question or just want to say hi? I'd love to hear from you!</p>
             <div className="flex items-center space-x-3">
               <FaEnvelope className="text-blue-400 text-xl" />
@@ -45,7 +46,8 @@ export default function ContactSection() {
               </a>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="bg-black p-6 rounded-lg shadow-lg">
+
+          <form onSubmit={handleSubmit} className="bg-black p-6 rounded-lg shadow-lg w-full">
             <div className="mb-4">
               <label htmlFor="name" className="block text-gray-300 font-medium mb-2">Name</label>
               <input
@@ -54,7 +56,7 @@ export default function ContactSection() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
+                className="w-full sm:w-80 px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
                 required
               />
             </div>
@@ -66,7 +68,7 @@ export default function ContactSection() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
+                className="w-full sm:w-80 px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
                 required
               />
             </div>
@@ -78,13 +80,13 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
+                className="w-full sm:w-80 px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
                 required
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+              className="w-full sm:w-80 bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
             >
               Send Message
             </button>
