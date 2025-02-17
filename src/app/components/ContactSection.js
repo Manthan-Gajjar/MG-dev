@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import css from "./button.css"
+import css from "./button.css";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className=" button-85 py-16 bg-gray-900 text-white rounded-lg shadow-lg px-6 md:px-12 lg:px-20">
+    <section id="contact" className="py-16 bg-black text-white rounded-lg shadow-lg px-6 md:px-12 lg:px-20">
       <div className="container mx-auto">
         <h2 className="text-2xl font-extrabold text-center my-10 text-blue-400">Get in Touch</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -45,7 +45,7 @@ export default function ContactSection() {
               </a>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <form onSubmit={handleSubmit} className="bg-black p-6 rounded-lg shadow-lg">
             <div className="mb-4">
               <label htmlFor="name" className="block text-gray-300 font-medium mb-2">Name</label>
               <input
@@ -54,7 +54,7 @@ export default function ContactSection() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
+                className="w-full px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
                 required
               />
             </div>
@@ -66,7 +66,7 @@ export default function ContactSection() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
+                className="w-full px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
                 required
               />
             </div>
@@ -78,7 +78,7 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
+                className="w-full px-4 py-2 bg-black border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-400 text-white"
                 required
               ></textarea>
             </div>
