@@ -30,10 +30,10 @@ export default function Header() {
           MG dev
         </button>
 
-        {/* Title */}
-        <h2 className="text-lg xs:text-xl sm:text-xl md:text-3xl lg:text-2xl font-extrabold text-blue-400">
-          &lt;/coder&gt;
-        </h2>
+  {/* Centered Title (Absolute Centering) */}
+  <h2 className="absolute left-1/2 -translate-x-1/2 text-lg xs:text-xl sm:text-xl md:text-3xl lg:text-2xl font-extrabold text-blue-400">
+    &lt;/coder&gt;
+  </h2>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-6">
