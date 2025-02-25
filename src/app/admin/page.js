@@ -137,31 +137,33 @@
 
 "use client";
 
-import useProjects from "@/app/hooks/useProjects"; // Import the hook
+import useProjects from "@/app/hooks/useProjects"; // ✅ Import the custom hook
 import { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import css from "../components/button.css";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
-
 export default function Admin() {
-  const projects = useProjects(); // Get projects from the hook
+  const projects = useProjects(); // ✅ Use the hook (this already connects to Supabase)
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [images, setImages] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
+  const resetForm = () => {
+    setEditingId(null);
+    setName("");
+    setDescription("");
+    setLink("");
+    setImages([]);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (editingId) {
-        await supabase.from("projects").update({ name, description, link, images }).eq("id", editingId);
+        await supabase.from("project").update({ name, description, link, images }).eq("id", editingId);
       } else {
-        await supabase.from("projects").insert([{ name, description, link, images }]);
+        await supabase.from("project").insert([{ name, description, link, images }]);
       }
       alert("Project saved successfully!");
       resetForm();
@@ -171,7 +173,7 @@ export default function Admin() {
   };
 
   const handleDelete = async (id) => {
-    await supabase.from("projects").delete().eq("id", id);
+    await supabase.from("project").delete().eq("id", id);
   };
 
   const handleEdit = (project) => {
