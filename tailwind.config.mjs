@@ -14,7 +14,8 @@ export default {
         foreground: "var(--foreground)",
       },
       screens: {
-        phone:"300px",
+        mini:"320px",
+        phone:"350px",
         tablate:"700px",
         xs: "480px",
         sm: "640px",
