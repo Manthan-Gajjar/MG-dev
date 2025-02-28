@@ -124,7 +124,7 @@ export default function AboutUs() {
             <div 
               key={rowIndex} 
               className="flex flex-wrap justify-center gap-2 sm:gap-4"
-              style={{ width: `${100 - rowIndex * 15}%` }}  // Dynamic width for alignment
+              style={{ width: `${100 - rowIndex * 15}%` }}  
             >
               {row.map((skill, skillIndex) => (
                 <div
