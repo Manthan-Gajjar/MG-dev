@@ -16,7 +16,7 @@ export default {
       screens: {
         mini:"320px",
         phone:"350px",
-        tablate:"700px",
+        tablate:"768px",
         xs: "480px",
         sm: "640px",
         md: "768px",
