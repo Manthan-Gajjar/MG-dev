@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import css from "./button.css";
 
 export default function ProjectModal({ project, onClose }) {
   const [mainImage, setMainImage] = useState(project.images[0]);
@@ -12,7 +13,7 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50">
-      <div className="bg-black text-white rounded-lg max-w-4xl w-full shadow-lg relative">
+      <div className="bg-black border border-gray-700  text-white rounded-lg max-w-4xl w-full shadow-lg relative">
         {/* Close Button in Top Right */}
         <button onClick={onClose} className="absolute top-3 right-3 text-white text-2xl font-bold">
           &times;
