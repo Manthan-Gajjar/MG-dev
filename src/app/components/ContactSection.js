@@ -24,7 +24,11 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 bg-black text-white rounded-lg shadow-lg px-6 md:px-12 lg:px-20">
       <div className="container mx-auto">
-        <h2 className="text-2xl font-extrabold text-left my-10 text-blue-400 text-center">Hey, a question?</h2>
+        {/* <h2 className="text-2xl font-extrabold text-left my-10 text-blue-400 text-center">Hey, a question?</h2> */}
+        <div className="text-center mb-12">
+          <h2 className="text-xl sm:text-1xl md:text-2xl font-bold mb-4">Hey, a question</h2>
+          <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
           <div className="space-y-10 mt-5">

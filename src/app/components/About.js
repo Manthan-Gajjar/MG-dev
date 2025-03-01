@@ -63,11 +63,17 @@ export default function AboutUs() {
           allSkills.slice(6, 9), // 3 skills
           allSkills.slice(9, 14), // 5 skills
         ];
+      } else if (screenWidth > 375) {
+        skillRows = [
+          // allSkills.slice(0, 6), // 6 skills
+          allSkills.slice(0, 7), // 3 skills
+          allSkills.slice(7, 14), // 5 skills
+        ];
       } 
       else {
         skillRows = [
-          allSkills.slice(0, 10), // 7 skills
-          allSkills.slice(10, 14), // 4 skills
+          allSkills.slice(0, 12), // 7 skills
+          allSkills.slice(12, 14), // 4 skills
         ];
       }
 
@@ -84,7 +90,7 @@ export default function AboutUs() {
       <div className="container mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+          <h2 className="text-xl sm:text-1xl md:text-2xl font-bold mb-4">About Me</h2>
           <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
         </div>
 

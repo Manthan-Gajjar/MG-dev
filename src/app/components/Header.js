@@ -37,7 +37,7 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-gray-300 text-lg">
+          <Link href="/" className="hover:text-red-300 text-lg">
             Home
           </Link>
           <Link href="/#contact" className="hover:text-red-300 text-lg">
