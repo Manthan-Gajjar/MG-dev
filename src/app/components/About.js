@@ -16,7 +16,7 @@ import Firebase from "./logos/firebase.png";
 import Supabase from "./logos/supabase.png";
 import JavaScript from "./logos/javascript.png";
 import TypeScript from "./logos/typescript.png";
-import myImage from "./logos/mycanva.png";
+import myImage from "./logos/myGhibli.png";
 
 // Full skill list
 const allSkills = [
@@ -104,7 +104,7 @@ export default function AboutUs() {
                 alt="Profile Picture"
                 width={400}
                 height={400}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full rounded-xl"
                 priority
               />
             </div>
