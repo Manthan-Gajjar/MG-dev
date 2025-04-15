@@ -101,8 +101,9 @@ export default function Header() {
   const router = useRouter()
 
   return (
-    <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5 rounded-2xl">
-      <nav className="container mx-auto flex items-center justify-between relative">
+    // <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5 rounded-2xl">
+<header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 header-glow m-5 rounded-2xl">
+<nav className="container mx-auto flex items-center justify-between relative">
         {/* Logo Button */}
         <button
           className="MGdev text-xl sm:text-2xl"
@@ -154,7 +155,7 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden px-4 py-3 space-y-2 bg-black">
+        <div className="MGdev md:hidden px-4 py-3 space-y-2 bg-black">
           <Link href="/" className="block text-base sm:text-lg hover:text-gray-300">
             Home
           </Link>
