@@ -6,12 +6,6 @@
   font-style: normal;
 }
 
-/* ✅ Apply font to custom class */
-.MGdev {
-  font-family: 'Sage Grotesk', sans-serif;
-  font-size: 1.6rem;
-}
-
 .MGdev {
   font-family: 'Sage Grotesk', sans-serif;
   font-size: 1.2rem; /* Base size for mobile */
