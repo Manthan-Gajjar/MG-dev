@@ -26,7 +26,7 @@ export default function Header() {
     <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5">
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo Button */}
-        <button className="MGdev" onClick={() => console.log('Logo Clicked')}>
+        <button className="MGdev text-lg xs:text-xl font-bold" onClick={() => console.log('Logo Clicked')}>
           MG dev
         </button>
 
