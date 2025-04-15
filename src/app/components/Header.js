@@ -83,6 +83,12 @@
 
 
 
+
+
+
+
+
+
 "use client"
 
 import Link from "next/link"
@@ -101,9 +107,8 @@ export default function Header() {
   const router = useRouter()
 
   return (
-    // <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5 rounded-2xl">
-<header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 header-glow m-5 rounded-2xl">
-<nav className="container mx-auto flex items-center justify-between relative">
+    <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5 rounded-2xl">
+      <nav className="container mx-auto flex items-center justify-between relative">
         {/* Logo Button */}
         <button
           className="MGdev text-xl sm:text-2xl"
