@@ -1,3 +1,35 @@
+/* ✅ Font Face Setup - no @import needed */
+@font-face {
+  font-family: 'Sage Grotesk';
+  src: url('/sage_grotesk/SageGrotesk.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ✅ Apply font to custom class */
+.MGdev {
+  font-family: 'Sage Grotesk', sans-serif;
+  font-size: 1.6rem;
+}
+
+.MGdev {
+  font-family: 'Sage Grotesk', sans-serif;
+  font-size: 1.2rem; /* Base size for mobile */
+}
+
+@media (min-width: 640px) {
+  .MGdev {
+    font-size: 1.2rem; /* Tablets / small laptops */
+  }
+}
+
+@media (min-width: 1024px) {
+  .MGdev {
+    font-size: 1.7rem; /* MacBook M1 / desktops */
+  }
+}
+
+
 /* CSS */
 .button-85 {
   padding: 0.6em 2em;

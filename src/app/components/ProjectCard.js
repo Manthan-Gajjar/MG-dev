@@ -21,7 +21,8 @@ export default function ProjectCard({ project }) {
   return (
     <>
       <div
-        className="bg-black rounded-lg shadow-md overflow-hidden cursor-pointer transform transition duration-500 hover:scale-105"
+        className="
+       font-poppins bg-black rounded-lg shadow-md overflow-hidden cursor-pointer transform transition duration-500 hover:scale-105"
         onClick={() => setIsModalOpen(true)}
       >
         <Image

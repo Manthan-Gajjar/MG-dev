@@ -28,13 +28,13 @@ export default function ContactSection() {
   <div className="container mx-auto flex flex-col items-center text-justify ">
     
     {/* Section Heading */}
-    <div className="mb-12">
+    <div className="mb-12 font-poppins">
       <h2 className="text-xl sm:text-1xl md:text-2xl font-bold mb-4">Hey, a question?</h2>
       <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
     </div>
 
     {/* Contact Info */}
-    <div className="space-y-6">
+    <div className="space-y-6 font-poppins">
       <p className="text-lg">Have a question or just want to say hi? I'd love to hear from you!</p>
 
       {/* Clickable Email */}

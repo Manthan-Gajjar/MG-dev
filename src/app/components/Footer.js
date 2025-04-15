@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white m-5 py-6 button-85">
       <div className="container mx-auto px-6 flex flex-col items-center justify-center text-center">
-        <p className="text-lg sm:text-xl font-bold">&copy; 2024 MG Dev. All rights reserved.</p>
+        <p className="text-lg sm:text-xl font-bold font-poppins">&copy; 2024 MG Dev. All rights reserved.</p>
         
         {/* Social Icons */}
         <div className="flex space-x-6 mt-4">

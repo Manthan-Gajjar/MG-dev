@@ -26,17 +26,17 @@ export default function Header() {
     <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5">
       <nav className="container mx-auto flex items-center justify-between">
         {/* Logo Button */}
-        <button className="text-lg xs:text-xl font-bold" onClick={() => console.log('Logo Clicked')}>
+        <button className="MGdev text-lg xs:text-xl font-bold" onClick={() => console.log('Logo Clicked')}>
           MG dev
         </button>
 
   {/* Centered Title (Absolute Centering) */}
-  <h2 className="absolute left-1/2 -translate-x-1/2 text-lg xs:text-xl sm:text-xl md:text-3xl lg:text-2xl font-extrabold text-blue-400">
+  <h2 className="MGdev absolute left-1/2 -translate-x-1/2 text-lg xs:text-xl sm:text-xl md:text-3xl lg:text-2xl font-extrabold text-blue-400">
     &lt;/coder&gt;
   </h2>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-6">
+        <div className="MGdev hidden md:flex space-x-6">
           <Link href="/" className="hover:text-red-300 text-lg">
             Home
           </Link>

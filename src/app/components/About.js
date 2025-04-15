@@ -86,11 +86,11 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <section className="w-full py-12 md:py-24 bg-black text-white">
+    <section className="font-poppins w-full py-12 md:py-24 bg-black text-white">
       <div className="container mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-xl sm:text-1xl md:text-2xl font-bold mb-4">About Me</h2>
+          <h2 className="text-xl sm:text-1xl md:text-2xl font-bold mb-4 font-poppins">About Me</h2>
           <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
         </div>
 
@@ -111,7 +111,7 @@ export default function AboutUs() {
           </div>
 
           {/* About Content */}
-          <div className="w-full md:w-1/2 phone:w-[380px] text-center md:text-left p-4 md:p-6">
+          <div className="font-poppins w-full md:w-1/2 phone:w-[380px] text-center md:text-left p-4 md:p-6">
             <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
               I'm a passionate Full Stack Developer with expertise in modern web technologies. I specialize in building
               responsive, user-friendly applications using JavaScript, React, and Node.js.
