@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { FaSquareUpwork } from "react-icons/fa6";
 import { TbBrandFiverr } from "react-icons/tb";
 import css from "./button.css";
 import { Pointer } from "lucide-react";
@@ -59,6 +60,9 @@ export default function ContactSection() {
         </a>
         <a href="https://www.fiverr.com/s/7YdQ2zL" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition">
           <TbBrandFiverr size={30} />
+        </a>
+        <a href="https://www.upwork.com/freelancers/~011bf95dc6874f0a46?mp_source=share" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition">
+          <FaSquareUpwork size={30} />
         </a>
       </div>
     </div>
