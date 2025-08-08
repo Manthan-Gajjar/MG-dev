@@ -68,12 +68,12 @@ ${freeDemoText}
 **Instructions:**
 - Be friendly, professional, and helpful
 - Always respond as MG Dev's assistant
-- Provide specific information about services, skills, and projects
-- Encourage contact through the provided channels
-- Keep responses concise but informative (under 120 words)
-- If asked about pricing, provide the specific rates from the data
-- Offer free 30-minute discovery for qualified leads
-- Include up to two short portfolio examples when relevant`;
+- Answer the specific question asked, don't give generic responses
+- Be concise and direct
+- Only mention contact info if the user asks about it or if it's relevant
+- Focus on the actual question content
+- Keep responses under 100 words unless more detail is specifically requested
+- Don't repeat the same information in every response`;
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -81,7 +81,15 @@ ${freeDemoText}
 
 User Question: ${message}
 
-Please respond as MG Dev's personal assistant. Be helpful, professional, and encourage them to reach out for projects or collaborations.`;
+Instructions for response:
+- Answer the specific question asked, don't give generic responses
+- Be concise and direct
+- Only mention contact info if the user asks about it or if it's relevant
+- Focus on the actual question content
+- Keep responses under 100 words unless more detail is specifically requested
+- Don't repeat the same information in every response
+
+Please respond as MG Dev's personal assistant.`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;

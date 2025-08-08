@@ -1,15 +1,39 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
 
 export default function AIChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { id: 1, text: "Hello! I'm MG Dev's personal AI assistant. I can help you learn about my services, skills, projects, and pricing. How can I assist you today?", isAI: true, timestamp: new Date() }
+    { id: 1, text: "Hello! I'm MG Dev's personal AI assistant. I can help you learn about my services, skills, projects, and pricing. How can I assist you today?", isAI: true, timestamp: new Date(), isTyping: false }
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [typingMessage, setTypingMessage] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
+  // Typing animation function
+  const typeMessage = (fullText, messageId) => {
+    setIsTyping(true);
+    setTypingMessage('');
+    let currentIndex = 0;
+    
+    const typeInterval = setInterval(() => {
+      if (currentIndex < fullText.length) {
+        setTypingMessage(prev => prev + fullText[currentIndex]);
+        currentIndex++;
+      } else {
+        clearInterval(typeInterval);
+        setIsTyping(false);
+        setTypingMessage('');
+        // Update the message with the full text
+        setMessages(prev => prev.map(msg => 
+          msg.id === messageId ? { ...msg, text: fullText, isTyping: false } : msg
+        ));
+      }
+    }, 15); // Speed of typing (15ms per character - faster)
+  };
 
   const handleSendMessage = async () => {
     if (inputMessage.trim() && !isLoading) {
@@ -17,7 +41,8 @@ export default function AIChat() {
         id: messages.length + 1,
         text: inputMessage,
         isAI: false,
-        timestamp: new Date()
+        timestamp: new Date(),
+        isTyping: false
       };
       
       setMessages(prev => [...prev, userMessage]);
@@ -39,17 +64,24 @@ export default function AIChat() {
         if (data.success) {
           const aiResponse = {
             id: messages.length + 2,
-            text: data.message,
+            text: '',
             isAI: true,
-            timestamp: new Date()
+            timestamp: new Date(),
+            isTyping: true
           };
           setMessages(prev => [...prev, aiResponse]);
+          
+          // Start typing animation
+          setTimeout(() => {
+            typeMessage(data.message, aiResponse.id);
+          }, 500); // Small delay before starting to type
         } else {
           const errorResponse = {
             id: messages.length + 2,
             text: data.message || "I'm sorry, I'm having trouble connecting right now. Please try again later or contact MG Dev directly.",
             isAI: true,
-            timestamp: new Date()
+            timestamp: new Date(),
+            isTyping: false
           };
           setMessages(prev => [...prev, errorResponse]);
         }
@@ -59,7 +91,8 @@ export default function AIChat() {
           id: messages.length + 2,
           text: "I'm sorry, I'm having trouble connecting right now. Please try again later or contact MG Dev directly through WhatsApp, LinkedIn, or email.",
           isAI: true,
-          timestamp: new Date()
+          timestamp: new Date(),
+          isTyping: false
         };
         setMessages(prev => [...prev, errorResponse]);
       } finally {
@@ -136,7 +169,12 @@ export default function AIChat() {
                         : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
                     }`}
                   >
-                    <p className="text-xs sm:text-sm leading-relaxed">{message.text}</p>
+                    <p className="text-xs sm:text-sm leading-relaxed">
+                      {message.isTyping ? typingMessage : message.text}
+                      {message.isTyping && (
+                        <span className="inline-block w-0.5 h-3 bg-gray-600 ml-0.5 animate-pulse"></span>
+                      )}
+                    </p>
                     <p className="text-xs opacity-70 mt-1">
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </p>
