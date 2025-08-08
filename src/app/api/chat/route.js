@@ -5,9 +5,9 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 console.log("🚀 ~ genAI:", genAI)
 
 export async function POST(request) {
+  const { message } = await request.json();
+  
   try {
-    const { message } = await request.json();
-
     // Build services and pricing text
     const servicesText = Object.entries(portfolioData.services).map(([key, service]) => {
       const pricing = portfolioData.pricing[key];
@@ -103,10 +103,51 @@ Please respond as MG Dev's personal assistant.`;
 
   } catch (error) {
     console.error('Chat API Error:', error);
+    
+    // Use fallback responses when API fails
+    const fallbackResponse = getFallbackResponse(message);
     return Response.json({ 
-      success: false, 
-      message: "I'm sorry, I'm having trouble connecting right now. Please try again later or contact MG Dev directly through WhatsApp, LinkedIn, or email.",
+      success: true, 
+      message: fallbackResponse,
       timestamp: new Date().toISOString()
-    }, { status: 500 });
+    });
   }
+}
+
+// Fallback response function
+function getFallbackResponse(message) {
+  const lowerMessage = message.toLowerCase();
+  
+  // Skills related
+  if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('tech')) {
+    return "React, Next.js, TypeScript, Node.js, Express. High-performance apps with payment gateways and admin panels. 💻";
+  }
+  
+  // Services related
+  if (lowerMessage.includes('service') || lowerMessage.includes('what do you do') || lowerMessage.includes('build')) {
+    return "Web development with React, Node.js. Mobile apps via our team. Payment gateways, admin panels, performance optimization. ⚡";
+  }
+  
+  // Pricing related
+  if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('rate')) {
+    return "Web development starts from ₹15,000, mobile from ₹25,000. Pricing varies by requirements. 💰";
+  }
+  
+  // Mobile related
+  if (lowerMessage.includes('mobile') || lowerMessage.includes('app') || lowerMessage.includes('flutter') || lowerMessage.includes('ios')) {
+    return "Our team handles Flutter and iOS development with cross-platform solutions. 📱";
+  }
+  
+  // Contact related
+  if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('email')) {
+    return "WhatsApp: +91 8141930612, Email: manthangajjar@gmail.com, LinkedIn: in.linkedin.com/in/manthan-gajjar-7654b52a5 📞";
+  }
+  
+  // Greeting
+  if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+    return "Hi! I'm MG Dev's assistant. How can I help you today? 👋";
+  }
+  
+  // Default response
+  return "I'm MG Dev's assistant. We specialize in React, Node.js web development with payment gateways and admin panels. How can I help? 💻";
 } 
