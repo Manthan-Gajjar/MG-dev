@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import portfolioData from '../../data/portfolio-data.json';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+console.log("🚀 ~ genAI:", genAI)
 
 export async function POST(request) {
   try {
