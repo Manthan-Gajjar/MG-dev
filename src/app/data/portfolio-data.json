@@ -1,0 +1,78 @@
+{
+  "personalInfo": {
+    "name": "Manthan Gajjar (MG Dev)",
+    "title": "Full Stack Developer",
+    "location": "India",
+    "email": "manthangajjar@gmail.com",
+    "phone": "+91 8141930612",
+    "linkedin": "https://in.linkedin.com/in/manthan-gajjar-7654b52a5",
+    "instagram": "https://instagram.com/mgdev.coder",
+    "whatsapp": "https://wa.me/918141930612"
+  },
+  "about": {
+    "summary": "Passionate Full Stack Developer with expertise in modern web technologies. I create responsive, user-friendly applications with clean code and innovative solutions.",
+    "experience": "2+ years of experience in web development",
+    "specialization": "Full Stack Development, React, Node.js, Next.js"
+  },
+  "skills": {
+    "frontend": ["React", "Next.js", "JavaScript", "TypeScript", "HTML", "CSS", "Tailwind CSS", "Bootstrap"],
+    "backend": ["Node.js", "Express.js", "Python", "Django"],
+    "databases": ["MongoDB", "PostgreSQL", "Firebase", "Supabase"],
+    "tools": ["Git", "GitHub", "VS Code", "Figma", "Canva"],
+    "other": ["REST APIs", "GraphQL", "Responsive Design", "UI/UX Design"]
+  },
+  "services": {
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "Custom websites and web applications built with modern technologies like React, Next.js, and Node.js"
+    },
+    "frontendDevelopment": {
+      "title": "Frontend Development",
+      "description": "Responsive and interactive user interfaces using React, TypeScript, and modern CSS frameworks"
+    },
+    "backendDevelopment": {
+      "title": "Backend Development",
+      "description": "Robust server-side applications with Node.js, Express, and database integration"
+    },
+    "uiUxDesign": {
+      "title": "UI/UX Design",
+      "description": "User-centered design solutions that enhance user experience and engagement"
+    },
+    "consulting": {
+      "title": "Technical Consulting",
+      "description": "Expert advice on technology choices, architecture, and development best practices"
+    }
+  },
+  "projects": [
+    {
+      "name": "Portfolio Website",
+      "description": "Personal portfolio website built with Next.js and Tailwind CSS",
+      "technologies": ["Next.js", "React", "Tailwind CSS", "JavaScript"],
+      "features": ["Responsive Design", "Modern UI", "Contact Form", "Project Showcase"]
+    },
+    {
+      "name": "E-commerce Platform",
+      "description": "Full-stack e-commerce solution with payment integration",
+      "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+      "features": ["User Authentication", "Payment Processing", "Admin Dashboard", "Product Management"]
+    },
+    {
+      "name": "Task Management App",
+      "description": "Collaborative task management application with real-time updates",
+      "technologies": ["React", "Firebase", "Material-UI"],
+      "features": ["Real-time Updates", "User Collaboration", "Task Tracking", "Notifications"]
+    }
+  ],
+  "pricing": {
+    "webDevelopment": "Starting from ₹15,000",
+    "frontendDevelopment": "Starting from ₹10,000",
+    "backendDevelopment": "Starting from ₹12,000",
+    "uiUxDesign": "Starting from ₹8,000",
+    "consulting": "₹2,000/hour"
+  },
+  "contactInfo": {
+    "availability": "Available for freelance projects and full-time opportunities",
+    "responseTime": "Usually responds within 2-4 hours",
+    "preferredContact": "WhatsApp, LinkedIn, or Email"
+  }
+} 
