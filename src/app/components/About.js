@@ -95,7 +95,7 @@ export default function AboutUs() {
         </div>
 
         {/* Image & Content */}
-        <div className="flex flex-col md:flex-row items-center max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center max-w-3xl mx-auto">
           {/* Profile Image */}
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 phone:w-52 phone:h-52 mini:w-52 mini:h-52 overflow-hidden shadow-xl">
@@ -104,7 +104,7 @@ export default function AboutUs() {
                 alt="Profile Picture"
                 width={400}
                 height={400}
-                className="object-cover w-full h-full rounded-xl"
+                className="object-contain w-full h-full rounded-xl"
                 priority
               />
             </div>
