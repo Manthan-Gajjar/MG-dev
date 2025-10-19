@@ -16,7 +16,7 @@ import Firebase from "./logos/firebase.png";
 import Supabase from "./logos/supabase.png";
 import JavaScript from "./logos/javascript.png";
 import TypeScript from "./logos/typescript.png";
-import myImage from "./logos/myGhibli.png";
+import myImage from "./logos/image.png";
 
 // Full skill list
 const allSkills = [
