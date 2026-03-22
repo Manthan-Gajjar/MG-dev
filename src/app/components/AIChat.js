@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FaRobot, FaTimes, FaPaperPlane } from "react-icons/fa";
+import { FaTimes, FaPaperPlane, FaRobot } from "react-icons/fa";
+import { RiRobot2Line, RiCloseLine } from "react-icons/ri";
 import portfolioData from "../data/portfolio-data.json";
 
 /**
@@ -284,9 +285,9 @@ export default function AIChat() {
       <button
         aria-label={isOpen ? "Close chat" : "Open chat"}
         onClick={() => setIsOpen((s) => !s)}
-        className="fixed z-50 bg-[#111] hover:bg-[#1a1a1a] text-white border border-white/10 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 transform hover:scale-110 hover:border-blue-500/50 bottom-4 right-4 p-4 sm:bottom-6 sm:right-6 group"
+        className="fixed z-50 bg-[#0a0a0a] border-2 border-blue-500/40 hover:border-blue-400 text-blue-400 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 bottom-5 right-5 p-3.5 sm:p-4 flex items-center justify-center backdrop-blur-md"
       >
-        {isOpen ? <FaTimes size={20} className="group-hover:text-red-400" /> : <FaRobot size={20} className="group-hover:text-blue-400" />}
+        {isOpen ? <RiCloseLine size={24} className="text-white" /> : <RiRobot2Line size={24} className="animate-[pulse_3s_ease-in-out_infinite]" />}
       </button>
 
       {/* Chat panel */}

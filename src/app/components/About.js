@@ -86,45 +86,71 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <section className="font-poppins w-full py-12 md:py-24 bg-black text-white">
+    <section className="font-poppins w-full py-4 md:py-4 bg-black text-white">
       <div className="container mx-auto px-4">
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-xl sm:text-1xl md:text-2xl font-bold mb-4 font-poppins">About Me</h2>
-          <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
-        </div>
-
-        {/* Image & Content */}
-        <div className="flex flex-col md:flex-row items-center max-w-3xl mx-auto">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/2 flex justify-center">
-            <div className="relative w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 phone:w-52 phone:h-52 mini:w-52 mini:h-52 overflow-hidden shadow-xl">
-              <Image
-                src={myImage}
-                alt="Profile Picture"
-                width={400}
-                height={400}
-                className="object-contain w-full h-full rounded-xl"
-                priority
-              />
-            </div>
+        
+        {/* Full Screen Viewport Wrapper for About */}
+        <div className="min-h-[85vh] flex flex-col justify-center pb-8">
+          {/* Section Heading */}
+          <div className="text-center mb-4 md:mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 font-poppins">About Me</h2>
+            <div className="w-16 sm:w-20 h-1 bg-blue-500 mx-auto"></div>
           </div>
 
-          {/* About Content */}
-          <div className="font-poppins w-full md:w-1/2 phone:w-[380px] text-center md:text-left p-4 md:p-6">
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
-              I'm a passionate Full Stack Developer with expertise in modern web technologies. I specialize in building
-              responsive, user-friendly applications using JavaScript, React, and Node.js.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              With experience across the entire development stack, I can take your project from concept to completion,
-              writing clean and efficient code to enhance user experience.
-            </p>
+          {/* Image & Content */}
+          <div className="flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto gap-6 md:gap-10 pt-2 pb-6">
+            {/* Profile Image */}
+            <div className="w-full md:w-5/12 flex justify-center md:justify-end">
+              <div className="relative w-full max-w-[240px] sm:max-w-[280px] md:max-w-[300px] lg:max-w-[360px] overflow-hidden shadow-2xl rounded-3xl border-4 border-white/5 transition-transform duration-500 hover:scale-105 bg-zinc-900">
+                <Image
+                  src={myImage}
+                  alt="Profile Picture"
+                  width={500}
+                  height={600}
+                  className="w-full h-auto object-contain rounded-3xl"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* About Content */}
+            <div className="font-poppins w-full md:w-7/12 text-center md:text-left px-4 sm:px-0">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                Manthan Gajjar <span className="text-gray-400 text-lg md:text-xl font-medium inline-block ml-2">| MG dev</span>
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 font-semibold mb-4">
+                Full Stack Web Developer
+              </p>
+              
+              <div className="space-y-2 sm:space-y-3 text-sm sm:text-sm md:text-base text-gray-400 leading-relaxed text-justify md:text-left">
+                <p>
+                  🚀 <strong className="text-gray-200">Looking for a high-performance, modern, and fully customized web application? You're in the right place!</strong>
+                </p>
+                <p>
+                  Hi! I'm Manthan Gajjar, a passionate and experienced Full Stack Web Developer working as a freelancer. I specialize in building scalable, responsive, and custom websites using modern technologies like JavaScript, TypeScript, Node.js, React, Next.js, MongoDB, PostgreSQL, and Tailwind CSS.
+                </p>
+                <p>
+                  Whether you need a single-page app, full SaaS platform, admin dashboard, or custom website, I can bring your vision to life with clean code, optimized performance, and beautiful UI/UX.
+                </p>
+                <div className="border-l-4 border-blue-500 pl-4 py-1.5 mt-3 italic bg-white/5 rounded-r-lg">
+                  I work independently, but if your project requires more hands, I can bring in my trusted team of developers to scale up and meet your deadlines.
+                </div>
+              </div>
+              
+              <div className="mt-5 md:mt-6 flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4">
+                <a href="#contact" className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] transition-all duration-300 transform hover:-translate-y-1 text-center text-sm md:text-base">
+                  💬 Let's Talk!
+                </a>
+                <a href="https://wa.me/918141930612" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl shadow-[0_0_15px_rgba(22,163,74,0.4)] hover:shadow-[0_0_25px_rgba(22,163,74,0.6)] transition-all duration-300 transform hover:-translate-y-1 text-center text-sm md:text-base">
+                  WhatsApp Me
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Dynamic Upside-Down Pyramid Skills */}
-        <div className="mt-12 flex flex-col items-center space-y-3 sm:space-y-4">
+        <div className="mt-16 md:mt-24 flex flex-col items-center space-y-3 sm:space-y-4">
           {skills.map((row, rowIndex) => (
             <div 
               key={rowIndex} 

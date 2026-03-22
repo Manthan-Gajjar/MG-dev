@@ -11,21 +11,13 @@ export default function Header() {
   return (
     <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5 rounded-2xl">
       <nav className="container mx-auto flex items-center justify-between relative">
-        {/* Logo Button */}
-        <button
-          className="MGdev text-xl sm:text-2xl"
-          onClick={async () => {
-            try {
-              const res = await fetch("/api/auth/me");
-              const data = await res.json();
-              router.push(data.user ? "/admin" : "/login");
-            } catch (err) {
-              router.push("/login");
-            }
-          }}
+        {/* Logo Link */}
+        <Link
+          href="/"
+          className="MGdev text-xl sm:text-2xl font-bold hover:text-blue-400 transition-colors"
         >
           MG dev
-        </button>
+        </Link>
 
         {/* Centered Title */}
         <h2 className="MGdev absolute left-1/2 -translate-x-1/2 text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-400">

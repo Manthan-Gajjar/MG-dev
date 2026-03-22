@@ -215,6 +215,9 @@ function buildEnhancedContext() {
 ⏰ **Experience:** ${about.experienceYears}+ years
 💬 **Response Time:** ${contactInfo.responseTime}
 
+**WHY WORK WITH MG DEV:**
+${about.whyWorkWithMe ? about.whyWorkWithMe.map(r => `✅ ${r}`).join('\n') : ''}
+
 **SERVICES & PRICING:**
 🌐 **Web Development:** ₹${pricing.projectEstimates.smallWebsite.range[0]}+ (React/Next.js, full-stack)
 📱 **Mobile Apps:** ₹${services.mobileDevelopment.pricing.freelancerStarting}+ (Flutter, iOS/Android)

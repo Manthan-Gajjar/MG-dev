@@ -29,20 +29,23 @@
     "emailBody": "Hello Manthan,%0D%0A%0D%0AI'd like to discuss a project. Please let me know your availability for a 30-minute call.%0D%0A%0D%0AThanks,%0D%0A[Your name]"
   },
   "about": {
-    "summary": "Passionate Full Stack Developer creating responsive, user-friendly applications with clean code and practical architecture.",
+    "summary": "Hi! I'm Manthan Gajjar, a passionate and experienced Full Stack Web Developer working as a freelancer under the name MG dev. I specialize in building scalable, responsive, and custom websites. Whether you need a single-page app, full SaaS platform, admin dashboard, or custom website, I can bring your vision to life with clean code, optimized performance, and beautiful UI/UX.",
     "experienceYears": 2,
-    "specialization": ["Full Stack Development", "React / Next.js", "Node.js / Express", "Flutter (iOS & Android)"]
+    "specialization": ["Full Stack Web Development", "React / Next.js", "Node.js / Express", "MongoDB / PostgreSQL", "Realtime / Socket.IO", "Supabase / Firebase", "Tailwind CSS"],
+    "whyWorkWithMe": ["100% custom and scalable solutions", "Clean, maintainable code", "Daily or weekly progress updates", "Open to solo or team-based work", "Dedicated team for large-scale projects"]
   },
   "services": {
     "webDevelopment": {
-      "title": "Web Development",
-      "description": "Custom websites and web apps with React / Next.js, SSR, SEO, and fast performance.",
+      "title": "Full-Stack Web Development",
+      "description": "Custom Website Design & Development, Frontend with React & Next.js, Backend with Node.js & Express.",
       "deliverables": [
         "Design mockups",
-        "Responsive frontend",
-        "Backend APIs",
-        "Admin panel (optional)",
-        "Deployment & docs"
+        "Responsive frontend with Tailwind CSS",
+        "Backend APIs (Express)",
+        "Database Integration (MongoDB, PostgreSQL)",
+        "Auth & APIs (Supabase / Firebase)",
+        "Realtime Features (Socket.IO)",
+        "Fast Performance & SEO Optimization"
       ],
       "pricing": { "freelancerStarting": 15000, "teamStarting": 35000 }
     },
