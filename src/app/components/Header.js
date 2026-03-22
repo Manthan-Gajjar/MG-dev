@@ -2,13 +2,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { createClient } from "@supabase/supabase-js"
 import "./button.css"
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-)
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,10 +15,13 @@ export default function Header() {
         <button
           className="MGdev text-xl sm:text-2xl"
           onClick={async () => {
-            const {
-              data: { user },
-            } = await supabase.auth.getUser()
-            router.push(user ? "/admin" : "/login")
+            try {
+              const res = await fetch("/api/auth/me");
+              const data = await res.json();
+              router.push(data.user ? "/admin" : "/login");
+            } catch (err) {
+              router.push("/login");
+            }
           }}
         >
           MG dev

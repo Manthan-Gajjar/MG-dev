@@ -284,114 +284,126 @@ export default function AIChat() {
       <button
         aria-label={isOpen ? "Close chat" : "Open chat"}
         onClick={() => setIsOpen((s) => !s)}
-        className="fixed z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full shadow-lg transition-transform duration-200 transform hover:scale-110 bottom-4 right-4 p-3 sm:bottom-6 sm:right-6"
-        style={{ boxShadow: "0 10px 25px rgba(147, 51, 234, 0.28)" }}
+        className="fixed z-50 bg-[#111] hover:bg-[#1a1a1a] text-white border border-white/10 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 transform hover:scale-110 hover:border-blue-500/50 bottom-4 right-4 p-4 sm:bottom-6 sm:right-6 group"
       >
-        {isOpen ? <FaTimes size={18} /> : <FaRobot size={18} />}
+        {isOpen ? <FaTimes size={20} className="group-hover:text-red-400" /> : <FaRobot size={20} className="group-hover:text-blue-400" />}
       </button>
 
       {/* Chat panel */}
       {isOpen && (
         <div
-          className="fixed z-40 right-4 bottom-20 w-80 sm:w-96 md:w-[420px] lg:w-[480px] h-[520px] bg-white rounded-lg shadow-2xl border border-gray-200 flex flex-col"
+          className="fixed z-40 right-4 bottom-24 sm:bottom-24 w-[calc(100vw-32px)] sm:w-96 md:w-[400px] h-[550px] max-h-[80vh] bg-[#0f0f0f]/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 flex flex-col font-poppins animate-[fadeIn_0.2s_ease-out] overflow-hidden"
           role="dialog"
           aria-label="MG Dev chat assistant"
         >
           {/* Header */}
-          <div className="px-4 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-t-lg text-white flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <FaRobot />
+          <div className="px-5 py-4 bg-black/40 border-b border-white/10 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center text-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                <FaRobot size={18} />
+              </div>
               <div>
-                <div className="text-sm font-semibold">MG Dev — Assistant</div>
-                <div className="text-xs opacity-80">Ask about services, pricing, projects</div>
+                <div className="text-sm font-bold text-white tracking-wide">MG Assistant</div>
+                <div className="text-xs text-blue-400 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Online
+                </div>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
               aria-label="Close chat"
-              className="text-white opacity-90 hover:opacity-100"
+              className="text-gray-400 hover:text-white transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10"
             >
               <FaTimes />
             </button>
           </div>
 
           {/* Quick actions */}
-          <div className="px-3 py-2 border-b border-gray-100 flex gap-2">
+          <div className="px-4 py-3 bg-[#111] border-b border-white/5 flex gap-2 overflow-x-auto scrollbar-hide">
             <button
               onClick={() => handleQuick("services")}
-              className="text-xs px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200"
+              className="text-xs px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors border border-white/5 whitespace-nowrap flex-shrink-0"
             >
               Services
             </button>
             <button
               onClick={() => handleQuick("pricing")}
-              className="text-xs px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200"
+              className="text-xs px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors border border-white/5 whitespace-nowrap flex-shrink-0"
             >
               Pricing
             </button>
             <button
               onClick={() => handleQuick("contact")}
-              className="text-xs px-2 py-1 rounded-md bg-gray-100 hover:bg-gray-200"
+              className="text-xs px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors border border-white/5 whitespace-nowrap flex-shrink-0"
             >
               Contact
             </button>
-            <div className="ml-auto text-xs opacity-70">Response time: ~2-4 hrs (IST)</div>
           </div>
 
           {/* Messages container */}
-          <div ref={containerRef} className="flex-1 p-3 overflow-y-auto bg-gray-50">
-            <div className="flex flex-col gap-3">
-              {messages.map((m) => (
+          <div ref={containerRef} className="flex-1 p-4 overflow-y-auto scrollbar-hide flex flex-col gap-4">
+            {messages.map((m) => (
+              <div
+                key={m.id}
+                className={`flex gap-2 ${m.isAI ? "justify-start" : "justify-end"}`}
+              >
+                {/* Avatar for AI */}
+                {m.isAI && (
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex-shrink-0 flex items-center justify-center text-blue-400 mt-auto hidden sm:flex">
+                    <FaRobot size={10} />
+                  </div>
+                )}
                 <div
-                  key={m.id}
-                  className={`flex ${m.isAI ? "justify-start" : "justify-end"} items-end`}
+                  className={`max-w-[85%] px-4 py-2.5 rounded-2xl ${
+                    m.isAI 
+                      ? "bg-white/5 border border-white/10 text-gray-200 rounded-bl-sm" 
+                      : "bg-blue-600/30 border border-blue-500/40 text-white rounded-br-sm shadow-[0_0_15px_rgba(59,130,246,0.1)]"
+                  }`}
                 >
-                  <div
-                    className={`max-w-[85%] px-3 py-2 rounded-lg ${
-                      m.isAI ? "bg-white border border-gray-200 text-gray-800" : "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
-                    }`}
-                  >
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed">
-                      {m.text}
-                      {m.isTyping && <span className="ml-1 animate-pulse">▌</span>}
-                    </div>
-                    <div className="text-[10px] opacity-60 mt-1 text-right">
-                      {new Date(m.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                    </div>
+                  <div className="whitespace-pre-wrap text-[13px] sm:text-sm leading-relaxed">
+                    {m.text}
+                    {m.isTyping && <span className="ml-1 inline-block w-1.5 h-3.5 bg-blue-400 animate-pulse align-middle"></span>}
+                  </div>
+                  <div className="text-[9px] opacity-40 mt-1 text-right font-medium tracking-wider">
+                    {new Date(m.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* Input */}
-          <div className="p-3 border-t border-gray-100 bg-white rounded-b-lg">
-            <div className="flex items-center gap-2">
+          {/* Input Area */}
+          <div className="p-4 bg-black/60 border-t border-white/10">
+            <div className="relative flex items-center">
               <textarea
                 rows={1}
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Type a message — press Enter to send"
-                className="flex-1 resize-none px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                placeholder="Type your message..."
+                className="w-full resize-none pl-4 pr-12 py-3 bg-[#111] border border-white/10 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm text-white placeholder:text-gray-500 transition-all font-poppins"
                 aria-label="Message input"
               />
               <button
                 onClick={handleSendMessage}
-                disabled={isLoading}
+                disabled={isLoading || !inputMessage.trim()}
                 aria-label="Send message"
-                className={`px-3 py-2 rounded-md text-white flex items-center justify-center ${
-                  isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                className={`absolute right-2 p-2 rounded-lg flex items-center justify-center transition-all ${
+                  isLoading || !inputMessage.trim() 
+                    ? "text-gray-600 cursor-not-allowed" 
+                    : "text-blue-400 hover:text-blue-300 hover:bg-blue-400/10"
                 }`}
               >
                 {isLoading ? (
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
                 ) : (
-                  <FaPaperPlane />
+                  <FaPaperPlane size={14} />
                 )}
               </button>
             </div>
-            <div className="text-xs text-gray-500 mt-2">Tip: Use Shift+Enter for newline</div>
+            <div className="text-[10px] text-gray-600 text-center mt-3 font-medium">
+              Powered by local MG Dev intelligence
+            </div>
           </div>
         </div>
       )}

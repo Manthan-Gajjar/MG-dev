@@ -13,7 +13,7 @@ import HTML from "./logos/html.png";
 import CSS from "./logos/css.png";
 import Bootstrap from "./logos/boostrap.png";
 import Firebase from "./logos/firebase.png";
-import Supabase from "./logos/supabase.png";
+
 import JavaScript from "./logos/javascript.png";
 import TypeScript from "./logos/typescript.png";
 import myImage from "./logos/image.png";
@@ -28,7 +28,7 @@ const allSkills = [
   { name: "MongoDB", logo: MongoDB },
   { name: "PostgreSQL", logo: PostgreSQL },
   { name: "Firebase", logo: Firebase },
-  { name: "Supabase", logo: Supabase },
+
   { name: "JavaScript", logo: JavaScript },
   { name: "TypeScript", logo: TypeScript },
   { name: "Bootstrap", logo: Bootstrap },

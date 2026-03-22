@@ -2,12 +2,6 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-)
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -17,8 +11,16 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
-      if (error) throw error
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.error || 'Login failed');
       router.push('/admin')
     } catch (error) {
       alert(error.message)
