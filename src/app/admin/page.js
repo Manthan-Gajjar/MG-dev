@@ -138,6 +138,10 @@ export default function Admin() {
     setImages([]);
   };
 
+  const cancelEdit = () => {
+    resetForm();
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-poppins selection:bg-blue-500/30">
       {/* Header */}

@@ -7,12 +7,19 @@ import Project from "@/models/Project"
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  await dbConnect();
-  const projectsData = await Project.find({}).sort({ createdAt: -1 });
-  const projects = projectsData.map(p => ({
-    ...p.toObject(),
-    id: p._id.toString()
-  }));
+  let projects = [];
+  try {
+    await dbConnect();
+    const projectsData = await Project.find({}).sort({ createdAt: -1 });
+    // Convert Mongoose documents to plain objects specifically for Next.js Client Components
+    projects = JSON.parse(JSON.stringify(projectsData)).map(p => ({
+      ...p,
+      id: p._id // JSON stringify already converted _id to string
+    }));
+  } catch (error) {
+    console.error("Failed to connect to Database or fetch projects:", error);
+    // Graceful fallback to empty array so the page still loads!
+  }
 
   return (
     

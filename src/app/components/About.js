@@ -108,6 +108,7 @@ export default function AboutUs() {
                   width={500}
                   height={600}
                   className="w-full h-auto object-contain rounded-3xl"
+                  style={{ height: 'auto' }}
                   priority
                 />
               </div>

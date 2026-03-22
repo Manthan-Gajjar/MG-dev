@@ -62,7 +62,7 @@ export default function ProjectCard({ project }) {
             <div className="flex -space-x-2">
               {validImages.slice(0, 3).map((img, i) => (
                 <div key={i} className="w-8 h-8 rounded-full border-2 border-[#111] overflow-hidden relative">
-                  <Image src={img} alt="" fill className="object-cover" />
+                  <Image src={img} alt="" fill sizes="32px" className="object-cover" />
                 </div>
               ))}
               {validImages.length > 3 && (

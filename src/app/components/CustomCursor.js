@@ -37,7 +37,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      <style dangerouslySetContent={{ __html: `
+      <style dangerouslySetInnerHTML={{ __html: `
         @media (pointer: fine) {
           * {
             cursor: none !important;
