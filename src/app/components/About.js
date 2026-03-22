@@ -115,15 +115,15 @@ export default function AboutUs() {
             </div>
 
             {/* About Content */}
-            <div className="font-poppins w-full md:w-7/12 text-center md:text-left px-4 sm:px-0">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                Manthan Gajjar <span className="text-gray-400 text-lg md:text-xl font-medium inline-block ml-2">| MG dev</span>
+            <div className="font-poppins w-full md:w-7/12 text-center md:text-left px-2 sm:px-0">
+              <h3 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                Manthan Gajjar <span className="text-gray-400 text-sm md:text-xl font-medium inline-block ml-2">| MG dev</span>
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-gray-300 font-semibold mb-4">
                 Full Stack Web Developer
               </p>
               
-              <div className="space-y-2 sm:space-y-3 text-sm sm:text-sm md:text-base text-gray-400 leading-relaxed text-justify md:text-left">
+              <div className="space-y-3 sm:space-y-3 text-sm sm:text-base md:text-base text-gray-400 leading-relaxed md:text-left">
                 <p>
                   🚀 <strong className="text-gray-200">Looking for a high-performance, modern, and fully customized web application? You're in the right place!</strong>
                 </p>
@@ -133,7 +133,7 @@ export default function AboutUs() {
                 <p>
                   Whether you need a single-page app, full SaaS platform, admin dashboard, or custom website, I can bring your vision to life with clean code, optimized performance, and beautiful UI/UX.
                 </p>
-                <div className="border-l-4 border-blue-500 pl-4 py-1.5 mt-3 italic bg-white/5 rounded-r-lg">
+                <div className="border-l-4 border-blue-500 pl-4 py-1.5 mt-3 italic bg-white/5 rounded-r-lg text-xs sm:text-sm md:text-base">
                   I work independently, but if your project requires more hands, I can bring in my trusted team of developers to scale up and meet your deadlines.
                 </div>
               </div>

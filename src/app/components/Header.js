@@ -19,8 +19,8 @@ export default function Header() {
           MG dev
         </Link>
 
-        {/* Centered Title */}
-        <h2 className="MGdev absolute left-1/2 -translate-x-1/2 text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-400">
+        {/* Centered Title - Hidden on small mobile */}
+        <h2 className="MGdev hidden sm:block absolute left-1/2 -translate-x-1/2 text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-400">
           &lt;/coder&gt;
         </h2>
 

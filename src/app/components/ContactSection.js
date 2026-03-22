@@ -35,34 +35,34 @@ export default function ContactSection() {
     </div>
 
     {/* Contact Info */}
-    <div className="space-y-6 font-poppins flex flex-col items-center bg-white/5 p-8 rounded-2xl border border-white/10 shadow-lg shadow-blue-500/10 max-w-2xl w-full">
-      <p className="text-lg text-gray-300">Have a question or just want to say hi? I'd love to hear from you!</p>
+    <div className="space-y-6 font-poppins flex flex-col items-center bg-white/5 p-6 sm:p-10 rounded-2xl border border-white/10 shadow-lg shadow-blue-500/10 max-w-3xl w-full">
+      <p className="text-base sm:text-lg text-gray-300 px-2">Have a question or just want to say hi? I'd love to hear from you!</p>
 
       {/* Clickable Email */}
-      <a href="mailto:mgdev.coder@gmail.com" className="flex items-center space-x-3 text-blue-400 hover:text-blue-300 transition hover:underline">
-        <FaEnvelope className="text-2xl" />
-        <span className="text-lg">mgdev.coder@gmail.com</span>
+      <a href="mailto:mgdev.coder@gmail.com" className="flex items-center space-x-3 text-blue-400 hover:text-blue-300 transition hover:underline text-sm sm:text-lg">
+        <FaEnvelope className="text-xl sm:text-2xl" />
+        <span className="break-all">mgdev.coder@gmail.com</span>
       </a>
 
       {/* WhatsApp */}
-      <a href="https://wa.me/918141930612" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-green-400 hover:text-green-300 transition hover:underline">
-        <FaWhatsapp className="text-2xl" />
-        <span className="text-lg">+91 8141930612</span>
+      <a href="https://wa.me/918141930612" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-green-400 hover:text-green-300 transition hover:underline text-sm sm:text-lg">
+        <FaWhatsapp className="text-xl sm:text-2xl" />
+        <span>+91 8141930612</span>
       </a>
 
       {/* Social Links */}
-      <div className="flex justify-center space-x-6 mt-8 pt-6 border-t border-white/10 w-full">
+      <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mt-6 pt-6 border-t border-white/10 w-full">
         <a href="https://in.linkedin.com/in/manthan-gajjar-7654b52a5" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 hover:scale-110 transition-transform duration-300">
-          <FaLinkedin size={35} />
+          <FaLinkedin size={32} className="sm:w-[40px] sm:h-[40px]" />
         </a>
         <a href="https://instagram.com/mgdev.coder" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-400 hover:scale-110 transition-transform duration-300">
-          <FaInstagram size={35} />
+          <FaInstagram size={32} className="sm:w-[40px] sm:h-[40px]" />
         </a>
         <a href="https://www.fiverr.com/s/7YdQ2zL" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 hover:scale-110 transition-transform duration-300">
-          <TbBrandFiverr size={35} />
+          <TbBrandFiverr size={32} className="sm:w-[40px] sm:h-[40px]" />
         </a>
         <a href="https://www.upwork.com/freelancers/~011bf95dc6874f0a46?mp_source=share" target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 hover:scale-110 transition-transform duration-300">
-          <FaSquareUpwork size={35} />
+          <FaSquareUpwork size={32} className="sm:w-[40px] sm:h-[40px]" />
         </a>
       </div>
     </div>
