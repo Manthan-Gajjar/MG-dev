@@ -4,6 +4,8 @@ import AboutUs from "./components/About"
 import dbConnect from "@/lib/mongodb"
 import Project from "@/models/Project"
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   await dbConnect();
   const projectsData = await Project.find({}).sort({ createdAt: -1 });
