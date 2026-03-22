@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
   const [isPointer, setIsPointer] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -14,7 +14,11 @@ export default function CustomCursor() {
     setIsVisible(true);
 
     const onMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (cursorRef.current) {
+        // Direct DOM manipulation for maximum performance
+        cursorRef.current.style.setProperty('--cursor-x', `${e.clientX}px`);
+        cursorRef.current.style.setProperty('--cursor-y', `${e.clientY}px`);
+      }
       
       const target = e.target;
       const isClickable = 
@@ -27,7 +31,7 @@ export default function CustomCursor() {
       setIsPointer(!!isClickable);
     };
 
-    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
     };
@@ -45,9 +49,10 @@ export default function CustomCursor() {
         }
       `}} />
       <div 
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference transition-transform duration-200 ease-out"
+        ref={cursorRef}
+        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference transition-transform duration-200 ease-out will-change-transform"
         style={{
-          transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%) scale(${isPointer ? 1.8 : 1})`,
+          transform: `translate3d(calc(var(--cursor-x, 0px) - 50%), calc(var(--cursor-y, 0px) - 50%), 0) scale(${isPointer ? 1.8 : 1})`,
           width: '20px',
           height: '20px',
           backgroundColor: 'white',
@@ -58,3 +63,4 @@ export default function CustomCursor() {
     </>
   );
 }
+

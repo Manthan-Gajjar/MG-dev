@@ -2,8 +2,6 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-// Move validation inside function so we don't crash the whole app if env is missing at build time
-
 /**
  * Global is used here to maintain a cached connection across hot reloads
  * in development. This prevents connections growing exponentially
@@ -29,9 +27,13 @@ async function dbConnect() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      maxPoolSize: 10, // Optimize for serverless
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     };
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+      console.log('=> New MongoDB connection established');
       return mongoose;
     });
   }
@@ -40,6 +42,7 @@ async function dbConnect() {
     cached.conn = await cached.promise;
   } catch (e) {
     cached.promise = null;
+    console.error('=> MongoDB connection error:', e);
     throw e;
   }
 
@@ -47,3 +50,4 @@ async function dbConnect() {
 }
 
 export default dbConnect;
+
