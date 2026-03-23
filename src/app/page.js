@@ -11,10 +11,10 @@ export default async function Home() {
   let projects = [];
   try {
     await dbConnect();
-    
+
     // lean() returns plain JS objects, faster than Mongoose documents
     const projectsData = await Project.find({}).sort({ createdAt: -1 }).lean();
-    
+
     // Map data to ensure it's fully serializable for Client Components
     projects = projectsData.map(p => ({
       ...p,
@@ -31,12 +31,12 @@ export default async function Home() {
   }
 
   return (
-    <div className="container mx-auto px-6 py-8">
-      <AboutUs/>
-      <div className="text-center mb-12">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white font-poppins">My Work</h2>
-          <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
-        </div>
+    <div className="container mx-auto px-6 py-12">
+      <AboutUs />
+      <div className="text-center mt-6 mb-16">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white font-poppins">My Work</h2>
+        <div className="w-16 sm:w-24 h-1 bg-blue-500 mx-auto"></div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects?.length > 0 ? (
           projects.map((project) => (

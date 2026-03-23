@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Nodejs from "./logos/nodejs.png";
 import Reactjs from "./logos/react.png";
 import Nextjs from "./logos/next.png";
@@ -86,7 +87,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <section className="font-poppins w-full py-4 md:py-4 bg-black text-white">
+    <section className="font-poppins w-full pt-4 pb-8 md:pt-4 md:pb-12 bg-black text-white">
       <div className="container mx-auto px-4">
         
         {/* Full Screen Viewport Wrapper for About */}
@@ -150,32 +151,84 @@ export default function AboutUs() {
           </div>
         </div>
 
-        {/* Dynamic Upside-Down Pyramid Skills */}
-        <div className="mt-16 md:mt-24 flex flex-col items-center space-y-3 sm:space-y-4">
-          {skills.map((row, rowIndex) => (
-            <div 
-              key={rowIndex} 
-              className="flex flex-wrap justify-center gap-2 sm:gap-4"
-              style={{ width: `${100 - rowIndex * 15}%` }}  
-            >
-              {row.map((skill, skillIndex) => (
-                <div
-                  key={skillIndex}
-                  className="relative w-12 h-12 sm:w-16 sm:h-16 phone:p-3 mini:p-3 md:w-20 md:h-20 bg-white p-2 sm:p-3 rounded-xl shadow-md flex flex-col items-center justify-center
-                  hover:shadow-lg hover:scale-110 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <Image
-                    src={skill.logo}
-                    alt={skill.name}
-                    width={40}
-                    height={40}
-                    className="object-contain"
-                  />
-                  <span className="text-[10px] phone:text-[6px] mini:text-[6px]  tablate:text-[8px] sm:text-xs md:text-xs text-black mt-1 sm:mt-2 font-medium text-center">{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          ))}
+        {/* Re-designed Skills Heading to match others */}
+        <div className="text-center mt-12 mb-10">
+          <h2 className="text-xl sm:text-2xl font-bold mb-2 font-poppins text-white uppercase tracking-wider">Skills & Technologies</h2>
+          <div className="w-16 sm:w-20 h-1 bg-blue-500 mx-auto"></div>
+        </div>
+
+        {/* Energized Skills Grid with Framer Motion */}
+        <div className="flex flex-col items-center max-w-5xl mx-auto mb-10 group/grid">
+          <div className="flex flex-col items-center space-y-4 sm:space-y-6">
+            {skills.map((row, rowIndex) => (
+              <motion.div 
+                key={rowIndex} 
+                className="flex flex-wrap justify-center gap-4 sm:gap-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.12,
+                      delayChildren: rowIndex * 0.1
+                    }
+                  }
+                }}
+              >
+                {row.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skillIndex}
+                    variants={{
+                      hidden: { opacity: 0, y: 30, scale: 0.5, rotate: -10 },
+                      visible: { 
+                        opacity: 1, 
+                        y: 0, 
+                        scale: 1, 
+                        rotate: 0,
+                        transition: { 
+                          type: "spring", 
+                          stiffness: 260, 
+                          damping: 20 
+                        } 
+                      }
+                    }}
+                    whileHover={{ 
+                      scale: 1.1, 
+                      y: -5, 
+                      rotate: [0, -1, 1, 0],
+                      transition: { duration: 0.2 }
+                    }}
+                    className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center p-2 sm:p-3 group/card"
+                  >
+                    {/* The Icon - perfectly sized now */}
+                    <div className="relative z-10 w-full h-full flex items-center justify-center">
+                      <Image
+                        src={skill.logo}
+                        alt={skill.name}
+                        width={64}
+                        height={64}
+                        className="object-contain w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover/card:scale-110"
+                        priority
+                      />
+                    </div>
+                    
+                    {/* Floating Tooltip Label */}
+                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-blue-600 text-white text-[10px] md:text-xs font-bold rounded-lg opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100 group-hover/card:-bottom-2 transition-all duration-300 z-20 pointer-events-none shadow-lg">
+                      {skill.name}
+                      <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-blue-600 rotate-45" />
+                    </div>
+
+                    {/* Small name at the bottom - subtle but clear on the white background */}
+                    <span className="mt-1 text-[8px] sm:text-[10px] text-gray-400 font-bold tracking-tight group-hover/card:opacity-0 transition-opacity duration-200">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
