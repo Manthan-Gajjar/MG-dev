@@ -57,6 +57,29 @@ export default {
         xl: "1280px",
         '2xl': "1536px",
       },
+      animation: {
+        'blob': 'blob 7s infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+        'drift': 'drift 20s linear infinite',
+      },
+      keyframes: {
+        drift: {
+          '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+          '50%': { transform: 'translate(10%, 5%) rotate(5deg)' },
+          '100%': { transform: 'translate(0, 0) rotate(0deg)' },
+        },
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+      },
     },
   },
   plugins: [],

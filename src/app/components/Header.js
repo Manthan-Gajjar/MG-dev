@@ -9,7 +9,7 @@ export default function Header() {
   const router = useRouter()
 
   return (
-    <header className="bg-gray-800 text-white p-4 sm:p-5 shadow-lg button-85 m-5 rounded-2xl">
+    <header className="sticky top-5 z-[100] bg-zinc-900/60 backdrop-blur-xl text-white p-4 sm:p-5 shadow-2xl border border-white/10 mx-5 rounded-3xl">
       <nav className="container mx-auto flex items-center justify-between relative">
         {/* Logo Link */}
         <Link
