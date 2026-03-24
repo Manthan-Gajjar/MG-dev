@@ -33,8 +33,38 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "MG Dev Portfolio",
-  description: "High-performance Portfolio for MG Dev - Web Developer specialized in Next.js, Node.js & SaaS",
+  title: "MG Dev Portfolio - Full Stack Web Developer",
+  description: "High-performance Portfolio for MG Dev - Web Developer specialized in Next.js, Node.js & SaaS applications.",
+  metadataBase: new URL("https://mg-dev.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Manthan Gajjar | MG Dev Portfolio",
+    description: "Creative Full Stack Web Developer specializing in building high-performance, modern web applications.",
+    url: "https://mg-dev.vercel.app",
+    siteName: "MG Dev Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MG Dev Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MG Dev | Full Stack Web Developer",
+    description: "High-performance Portfolio for MG dev - Web Developer specialized in Next.js, Node.js & SaaS",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 }
 
 export default function RootLayout({ children }) {
